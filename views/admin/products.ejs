@@ -1,0 +1,25 @@
+<%- include ('../partials/header') %>
+    <title>Ridez</title>
+</head>
+<body>
+    <%- include ('../partials/admin-nav') %>
+    <h1>Ridez-Admin-Products page</h1>
+    <div id="products">
+        <ul>
+            <li>car</li>
+            <li>bikes</li>
+            <li>tricycle</li>
+            <li>bus</li>
+        </ul>
+        <% Products.forEach( product => { %>
+            <div>
+                <img src="<%= product.image %>" alt="">
+                <h3><%= product.title %></h3>
+                <a href="/<%= product._id %>"></a>
+                <form action="/editProduct" method="post">
+                    <input type="submit" value="Edit" class="btn btn-danger" >
+                </form>
+            </div>
+        <% }) %>
+    </div>
+<%- include ('../partials/footer') %>
